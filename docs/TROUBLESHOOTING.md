@@ -58,3 +58,13 @@
 **原因：** 菜单从 `PetService` inflate，没有 Activity 主题。关闭按钮用了 `?attr/selectableItemBackgroundBorderless`，解析属性失败导致 `InflateException`。
 
 **办法：** overlay 布局不用 `?attr/`；关闭改成普通 `TextView`「×」。inflate 用 `ContextThemeWrapper(service, Theme.DesktopPet)`。
+
+---
+
+## 2026-09-12 启动偶发提示失败 / 服务初始化失败后仍运行回调
+
+**症状：** 首次启动或设备较慢时，主页很快提示「启动失败」；服务创建失败后仍可能继续执行时间和行为检查。
+
+**原因：** 主页只等待固定 1.2 秒检查 `PetService.isRunning`；而 `PetService.onCreate()` 的失败分支调用 `stopSelf()` 后没有结束初始化流程。
+
+**办法：** 主页改为最多 8 次、每 500 ms 轮询服务状态；服务初始化失败时清理已排队的 Handler 回调并立即结束 `onCreate()`。

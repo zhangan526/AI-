@@ -120,12 +120,7 @@ class MainActivity : AppCompatActivity() {
             ContextCompat.startForegroundService(this, Intent(this, PetService::class.java))
         }.onSuccess {
             updateStatus(true)
-            binding.root.postDelayed({
-                if (!PetService.isRunning) {
-                    updateStatus(false)
-                    showLastStartError()
-                }
-            }, SERVICE_START_CHECK_DELAY_MS)
+            verifyServiceStart(0)
         }.onFailure {
             updateStatus(false)
             Toast.makeText(
@@ -134,6 +129,22 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
         }
+    }
+
+    private fun verifyServiceStart(attempt: Int) {
+        if (PetService.isRunning) {
+            updateStatus(true)
+            return
+        }
+        if (attempt < SERVICE_START_MAX_ATTEMPTS) {
+            binding.root.postDelayed(
+                { verifyServiceStart(attempt + 1) },
+                SERVICE_START_CHECK_INTERVAL_MS
+            )
+            return
+        }
+        updateStatus(false)
+        showLastStartError()
     }
 
     private fun showLastStartError() {
@@ -277,7 +288,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val SERVICE_START_CHECK_DELAY_MS = 1_200L
+        private const val SERVICE_START_CHECK_INTERVAL_MS = 500L
+        private const val SERVICE_START_MAX_ATTEMPTS = 8
         private const val WALK_SPEED_MIN = 10
         private const val WALK_SPEED_MAX = 500
     }

@@ -64,7 +64,7 @@ class PetService : Service() {
         assets = PetAssetRepository(this)
         settings = PetSettings(this)
         isRunning = false
-        runCatching {
+        val started = runCatching {
             createNotificationChannel()
             val notification = buildNotification()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
@@ -83,8 +83,14 @@ class PetService : Service() {
         }.onFailure {
             isRunning = false
             saveLastStartError(it)
+            // Do not leave timers running after a failed overlay/foreground-service
+            // initialization. They would keep the dead service busy and make the
+            // next start look like a partially initialized instance.
+            timeHandler.removeCallbacks(timeCheck)
+            behaviorHandler.removeCallbacks(behaviorTick)
             stopSelf()
-        }
+        }.isSuccess
+        if (!started) return
         evaluateLocalTime()
         timeHandler.postDelayed(timeCheck, TimeBehaviorConfig.CHECK_INTERVAL_MS)
         behaviorHandler.postDelayed(behaviorTick, 180_000L)
