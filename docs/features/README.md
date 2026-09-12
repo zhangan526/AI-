@@ -10,5 +10,6 @@
 | 04 | [闪记](04-flash-note.md) | `:app` `FlashNoteStore` |
 | 05 | [夜间作息守护](05-habit-guardian.md) | `:app` `HabitGuardian` + `HabitHook` |
 | 06 | [Reef 拦截与配置](06-reef-focus.md) | `:reef` |
+| 07 | [Miku UI 独立源码版本](07-miku-ui-snapshot.md) | 独立 `MikuUI/` 工程，用户要求原样导入 |
 
 新增功能先在此表占一行，再写文档草稿，再改代码。
