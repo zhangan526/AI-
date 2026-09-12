@@ -48,3 +48,13 @@
 **原因：** `PullTabView` 高度写死，只改数字；时钟时间写在表盘外 hint 上。
 
 **办法：** 拉环高度随分钟 `updateViewLayout`；时间画在 `AnalogTimerView` 表盘内；`x=0,y=0` 贴左上角。
+
+---
+
+## 2026-09-12 双击功能菜单打不开 / 控制窗打开失败
+
+**症状：** 双击桌宠弹出 Toast「控制窗打开失败」，菜单不出现。
+
+**原因：** 菜单从 `PetService` inflate，没有 Activity 主题。关闭按钮用了 `?attr/selectableItemBackgroundBorderless`，解析属性失败导致 `InflateException`。
+
+**办法：** overlay 布局不用 `?attr/`；关闭改成普通 `TextView`「×」。inflate 用 `ContextThemeWrapper(service, Theme.DesktopPet)`。

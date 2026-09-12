@@ -22,14 +22,15 @@
             android:textSize="13sp"
             android:textStyle="bold" />
 
-        <ImageButton
+        <TextView
             android:id="@+id/closeMenuButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/close_menu"
-            android:padding="4dp"
-            android:src="@drawable/ic_close" />
+            android:gravity="center"
+            android:text="×"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <Button

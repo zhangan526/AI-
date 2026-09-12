@@ -1,6 +1,7 @@
 package com.geekathon.guardpet
 
 import android.graphics.PixelFormat
+import android.view.ContextThemeWrapper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.WindowManager
@@ -14,7 +15,9 @@ class PetMenuOverlay(
     private val anchorWidth: Int,
     private val anchorHeight: Int
 ) {
-    private val binding = OverlayPetMenuBinding.inflate(LayoutInflater.from(service))
+    private val binding = OverlayPetMenuBinding.inflate(
+        LayoutInflater.from(ContextThemeWrapper(service, R.style.Theme_DesktopPet))
+    )
     private var attached = false
 
     fun show() {
