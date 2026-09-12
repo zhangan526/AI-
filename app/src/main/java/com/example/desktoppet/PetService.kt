@@ -58,7 +58,7 @@ class PetService : Service() {
         assets = PetAssetRepository(this)
         settings = PetSettings(this)
         isRunning = false
-        runCatching {
+        val startResult = runCatching {
             createNotificationChannel()
             val notification = buildNotification()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
@@ -74,11 +74,19 @@ class PetService : Service() {
             showPet()
             isRunning = true
             clearLastStartError()
-        }.onFailure {
+        }
+        startResult.onFailure {
             isRunning = false
             saveLastStartError(it)
+            // Do not leave periodic callbacks behind after a failed startup.
+            timeHandler.removeCallbacks(timeCheck)
+            interactionHandler.removeCallbacksAndMessages(null)
+            behaviorHandler.removeCallbacks(behaviorTick)
             stopSelf()
         }
+
+        if (startResult.isFailure) return
+
         evaluateLocalTime()
         timeHandler.postDelayed(timeCheck, TimeBehaviorConfig.CHECK_INTERVAL_MS)
         behaviorHandler.postDelayed(behaviorTick, 180_000L)
