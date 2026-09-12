@@ -270,6 +270,11 @@ class PetService : Service() {
         )
     }
 
+    fun openAgent() {
+        menuOverlay?.close()
+        startActivity(Intent(this, AiAgentActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+    }
+
     private fun showFeatureMenu() {
         runCatching {
             check(Settings.canDrawOverlays(this)) { getString(R.string.overlay_permission_required) }

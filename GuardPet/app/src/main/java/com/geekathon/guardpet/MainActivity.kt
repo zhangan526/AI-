@@ -71,6 +71,9 @@ class MainActivity : AppCompatActivity() {
         binding.flashNoteButton.setOnClickListener {
             startActivity(Intent(this, FlashNoteActivity::class.java))
         }
+        binding.aiAgentButton.setOnClickListener {
+            startActivity(Intent(this, AiAgentActivity::class.java))
+        }
         binding.focusAttribution.setOnClickListener { FocusLauncher.openAbout(this) }
 
         updateValues()

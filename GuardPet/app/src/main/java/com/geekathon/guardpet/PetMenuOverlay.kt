@@ -46,6 +46,10 @@ class PetMenuOverlay(
             close()
             service.openFlashNote()
         }
+        binding.agentButton.setOnClickListener {
+            close()
+            service.openAgent()
+        }
         binding.focusButton.setOnClickListener {
             close()
             service.openFocusTimer()

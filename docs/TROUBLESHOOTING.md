@@ -2,6 +2,22 @@
 
 按时间追加。格式：症状 → 试过什么 → 原因 → 办法。
 
+## 2026-09-12 本机 Java 与 Gradle 环境配置
+
+**症状：** Gradle 首先报 `JAVA_HOME is not set`；安装 Java 后下载 Gradle 又报 `Connection refused`。
+
+**原因：** 本机未安装 JDK；项目强制使用未启动的 `127.0.0.1:7890` 代理。
+
+**办法：** 安装 Eclipse Temurin JDK 17，设置用户级 `JAVA_HOME` 并把 JDK 的 `bin` 加入用户 `Path`；注释项目 `gradle.properties` 中的代理配置，仅在代理实际监听时启用。新打开的终端会自动读取更新后的环境变量。
+
+**后续排查：** Gradle 下载完成后，Windows 中文项目路径触发 AGP 检查，随后构建提示 `SDK location not found`。在 `GuardPet/gradle.properties` 中设置 `android.overridePathCheck=true` 后，本项目通过路径检查。该设置只跳过检查，其他工具若仍不支持中文路径，需要使用纯英文路径。
+
+本机已有 Android SDK，无需重复安装。在被 `.gitignore` 排除的 `GuardPet/local.properties` 中设置 `sdk.dir=C:/Users/ZHY/AppData/Local/Android/Sdk`；用户级 `ANDROID_HOME` 和 `ANDROID_SDK_ROOT` 指向同一目录，用户 `Path` 加入 SDK 的 `platform-tools`。
+
+**验证结果：** JDK 17.0.20.1、Gradle 9.5.0 可运行；`./gradlew.bat :app:assembleDebug --no-daemon` 显示 `BUILD SUCCESSFUL`，79 个任务执行完成。APK 位于 `GuardPet/app/build/outputs/apk/debug/app-debug.apk`。网络依赖通过构建验证，尚未进行 DeepSeek API 调用。
+
+DeepSeek Agent 接入后再次构建通过；当前没有连接真机，因此未在设备上验证悬浮窗动作或真实 API 调用。
+
 ---
 
 ## 2026-09-12 番茄钟 overlay 启动即崩溃

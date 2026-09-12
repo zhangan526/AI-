@@ -238,6 +238,13 @@
             android:layout_marginTop="8dp"
             android:text="@string/flash_note" />
 
+        <Button
+            android:id="@+id/aiAgentButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/ai_agent_title" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

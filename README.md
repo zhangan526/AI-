@@ -1,5 +1,15 @@
 # 守伴
 
+## 本分支：DeepSeek Agent 接口版 · 2026-09-12
+
+分支：`codex/guardpet-deepseek-agent-20260912`。基于 `main` 的 `7bf62be`，整合用户提供的 19 个增量文件，包含可独立打开的完整 `GuardPet/` 工程。
+
+新增主页和桌宠菜单里的「守伴 Agent」入口、DeepSeek 文本对话、API Key 加密保存，以及摸摸、喂食、睡觉、保存闪记四类动作。当前是页面内会话与动作接口版本；真实 API 和手机交互尚未验证。
+
+本次完整工程 Debug 编译通过（79 个任务）。
+
+本分支沿用 GuardPet UI，与 `codex/ui-miku-modern` 的独立 Miku UI 版本分开。详细变更、使用方法和验证记录见 [DeepSeek 接口版更新说明](docs/updates/20260912-deepseek-agent.md)。
+
 陪伴守护形桌宠。应用名「守伴」，包名 `com.geekathon.guardpet`。
 
 用 Android Studio 打开 **`GuardPet/`** 目录（不要打开仓库根目录）。

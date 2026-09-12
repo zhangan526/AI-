@@ -10,5 +10,7 @@
 | 04 | [闪记](04-flash-note.md) | `:app` `FlashNoteStore` |
 | 05 | [夜间作息守护](05-habit-guardian.md) | `:app` `HabitGuardian` + `HabitHook` |
 | 06 | [Reef 拦截与配置](06-reef-focus.md) | `:reef` |
+| 07 | [大模型网络基础依赖](07-ai-network-dependencies.md) | `:app` |
+| 08 | [DeepSeek Agent](08-deepseek-agent.md) | `:app` |
 
 新增功能先在此表占一行，再写文档草稿，再改代码。

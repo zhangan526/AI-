@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="20dp" android:background="@color/page_background">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ai_agent_title" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/text_primary" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal">
+        <EditText android:id="@+id/apiKeyInput" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:hint="@string/ai_key_hint" android:singleLine="true" />
+        <Button android:id="@+id/saveKeyButton" android:layout_width="wrap_content" android:layout_height="48dp" android:text="@string/ai_save_key" />
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="12dp">
+        <LinearLayout android:id="@+id/chatContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+    </ScrollView>
+    <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ai_ready" android:textColor="@color/text_secondary" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <EditText android:id="@+id/messageInput" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:hint="@string/ai_message_hint" android:inputType="textCapSentences|textMultiLine" />
+        <Button android:id="@+id/sendButton" android:layout_width="wrap_content" android:layout_height="52dp" android:text="@string/ai_send" />
+    </LinearLayout>
+</LinearLayout>

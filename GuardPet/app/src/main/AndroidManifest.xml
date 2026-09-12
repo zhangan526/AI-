@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -51,6 +52,11 @@
             android:excludeFromRecents="true"
             android:theme="@style/Theme.DesktopPet.Translucent"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".AiAgentActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DesktopPet.Panel" />
 
         <provider
             android:name=".GuardInitProvider"

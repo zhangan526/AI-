@@ -37,6 +37,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.okhttp)
+    implementation(libs.kotlinx.coroutines.android)
     implementation("com.huaban:jieba-analysis:1.0.2")
 }
 

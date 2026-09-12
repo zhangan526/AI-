@@ -59,6 +59,16 @@
     <string name="flash_note_pick_category">请选择这段文字是干什么的</string>
     <string name="flash_note_saved">已保存到闪记</string>
     <string name="flash_note_empty_list">还没有闪记</string>
+    <string name="ai_agent_title">守伴 Agent</string>
+    <string name="ai_key_hint">DeepSeek API Key</string>
+    <string name="ai_save_key">保存 Key</string>
+    <string name="ai_message_hint">和守伴聊聊…</string>
+    <string name="ai_send">发送</string>
+    <string name="ai_ready">可以开始聊天</string>
+    <string name="ai_thinking">守伴思考中…</string>
+    <string name="ai_failed">请求失败，请检查网络和 API Key</string>
+    <string name="ai_key_saved">API Key 已加密保存</string>
+    <string name="ai_note_saved">已保存到闪记</string>
     <string name="category_schedule">日程</string>
     <string name="category_idea">灵感</string>
     <string name="category_diary">日记</string>

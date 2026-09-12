@@ -14,6 +14,8 @@ kotlinxSerialization = "1.11.0"
 workManager = "2.10.5"
 appcompat = "1.7.0"
 material = "1.12.0"
+okhttp = "4.12.0"
+kotlinxCoroutines = "1.10.2"
 
 [libraries]
 androidx-compose-ui-text-google-fonts = { module = "androidx.compose.ui:ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
@@ -22,6 +24,8 @@ androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", versi
 androidx-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version.ref = "vico" }
