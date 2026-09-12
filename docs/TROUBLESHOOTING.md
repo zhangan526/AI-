@@ -1,0 +1,50 @@
+# 排障日志
+
+按时间追加。格式：症状 → 试过什么 → 原因 → 办法。
+
+---
+
+## 2026-09-12 番茄钟 overlay 启动即崩溃
+
+**症状：** 桌宠菜单里点番茄钟，应用直接没。
+
+**试过：** 复用 Reef `FocusModeService.ACTION_START`。
+
+**原因：**
+
+1. `PetService` 已是 `specialUse` FGS，再拉一条同类型 FGS 在 Android 14+ 易失败。
+2. `FocusModeService.updateProgressSegments()` 在 API 36 读 `App.colorScheme`，该字段只在 Reef Compose 主题跑过才赋值。
+
+**办法：** overlay 内 `Handler` 倒计时；`prefs["focus_mode"]=true` 交给 `BlockerService`。`App.colorScheme` 改为默认 `lightColorScheme()`。不要从桌宠 `startForegroundService(FocusModeService)`。
+
+---
+
+## 2026-09-12 大爆炸整页盖住当前应用 / 跳回守伴主页
+
+**症状：** 提取文字后要么悬浮窗挡住一切，要么跳出当前 App 看到守伴主页。
+
+**试过：** 全屏 `TYPE_APPLICATION_OVERLAY`；或普通 `startActivity(BigBangActivity)` 走默认 affinity。
+
+**原因：** 全屏 overlay 吞触摸。同一 affinity 会把守伴 task（含主页）抬到前台。NovaText 用独立 task 的透明 Activity。
+
+**办法：** `Theme.DesktopPet.BigBang` + `taskAffinity="${applicationId}.bigbang"` + `singleInstance` + `NEW_TASK`。抓字时藏桌宠，避免 overlay 盖在词块上。
+
+---
+
+## 2026-09-12 提取文字不能反选、中文逐字拆
+
+**症状：** 拖选会清掉旧选择；中文每个字一块。
+
+**原因：** `selectRange` 先 `selected.clear()`；`TextTokenizer` 按 CJK 单字切。ICU `BreakIterator` 对汉字也常是逐字。
+
+**办法：** 拖选以 DOWN 时的 snapshot 做并集/差集；jieba `SegMode.SEARCH`，失败再用词典 FMM。
+
+---
+
+## 2026-09-12 拉环改时间但外观不动
+
+**症状：** 分钟变了，拉环长度和指针看不出变化。
+
+**原因：** `PullTabView` 高度写死，只改数字；时钟时间写在表盘外 hint 上。
+
+**办法：** 拉环高度随分钟 `updateViewLayout`；时间画在 `AnalogTimerView` 表盘内；`x=0,y=0` 贴左上角。

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/panel_background"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="94dp"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingEnd="8dp">
+
+        <Switch
+            android:id="@+id/freeWalkSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:showText="false"
+            android:text="@string/free_walk"
+            android:textOff="@string/free_walk_off"
+            android:textOn="@string/free_walk_on"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/stopPetButton"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="6dp"
+            android:minWidth="0dp"
+            android:text="@string/close_pet"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/focusButton"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="6dp"
+            android:minWidth="0dp"
+            android:text="@string/focus_timer"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/todoCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="0"
+            android:textColor="@color/accent_warm"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/addTodoButton"
+            android:layout_width="54dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/add_todo"
+            android:minWidth="0dp"
+            android:text="+"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/panel_divider" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/todoContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/closePanelButton"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/close_panel"
+        android:gravity="center"
+        android:text="×"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp" />
+</LinearLayout>

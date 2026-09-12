@@ -1,0 +1,10 @@
+<resources>
+    <color name="page_background">#FFF9FB</color>
+    <color name="text_primary">#202124</color>
+    <color name="text_secondary">#5F6368</color>
+    <color name="brand_primary">#008F95</color>
+    <color name="brand_primary_dark">#006A70</color>
+    <color name="accent_warm">#F04F2F</color>
+    <color name="panel_divider">#E2E5E9</color>
+    <color name="white">#FFFFFF</color>
+</resources>
