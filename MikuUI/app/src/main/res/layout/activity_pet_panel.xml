@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@drawable/panel_background" android:padding="16dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/todo_title" android:textSize="18sp" android:textColor="@color/text_primary" android:includeFontPadding="false" android:fontFamily="sans-serif-medium" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/food_number_default" android:textSize="12sp" android:textColor="@color/brand_primary" android:includeFontPadding="false" android:id="@+id/todoCount" android:background="@drawable/badge_background" android:paddingStart="9dp" android:paddingEnd="9dp" android:paddingTop="4dp" android:paddingBottom="4dp" android:layout_marginStart="8dp" />
+        <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+        <androidx.appcompat.widget.AppCompatImageButton android:layout_width="48dp" android:layout_height="48dp" android:id="@+id/closePanelButton" android:src="@drawable/ic_close_line" android:contentDescription="@string/close_panel" android:background="?attr/selectableItemBackgroundBorderless" android:padding="13dp" app:backgroundTint="@null" />
+    </LinearLayout>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/todo_reward_hint" android:textSize="11sp" android:textColor="@color/text_secondary" android:includeFontPadding="false" android:layout_marginBottom="10dp" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/todo_empty" android:textSize="13sp" android:textColor="@color/text_secondary" android:includeFontPadding="false" android:id="@+id/todoEmpty" android:gravity="center" android:lineSpacingExtra="6dp" />
+        <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:scrollbars="none">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:id="@+id/todoContainer" />
+        </ScrollView>
+    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatButton android:layout_width="match_parent" android:layout_height="48dp" android:id="@+id/addTodoButton" android:text="@string/add_todo" style="@style/Widget.Miku.Button.secondary" android:layout_marginTop="8dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="4dp">
+        <androidx.appcompat.widget.SwitchCompat android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:id="@+id/freeWalkSwitch" android:text="@string/free_walk" android:textColor="@color/text_secondary" android:textSize="12sp" app:showText="false" app:thumbTint="@color/white" app:trackTint="@color/switch_track" app:switchPadding="8dp" />
+        <androidx.appcompat.widget.AppCompatButton android:layout_width="wrap_content" android:layout_height="48dp" android:id="@+id/stopPetButton" android:text="@string/pause_short" style="@style/Widget.Miku.Button.ghost" android:layout_marginStart="16dp" android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>

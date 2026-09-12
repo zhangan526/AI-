@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <color name="page_background">#F5F6F3</color>
+    <color name="text_primary">#23312D</color>
+    <color name="text_secondary">#67756E</color>
+    <color name="brand_primary">#417C69</color>
+    <color name="brand_primary_dark">#264B40</color>
+    <color name="accent_warm">#A07851</color>
+    <color name="panel_divider">#E2E7E1</color>
+    <color name="white">#FFFFFF</color>
+    <color name="surface_soft">#EDF1EB</color>
+    <color name="hero_background">#E7EEE5</color>
+    <color name="track">#E5EBE2</color>
+    <color name="disabled_text">#939F96</color>
+    <color name="disabled_surface">#EAEEE8</color>
+    <color name="danger">#A66159</color>
+</resources>
