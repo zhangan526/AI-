@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="game_runner">跑酷</string>
+    <string name="game_runner_card_hint">跳过障碍，吃中间金币，越跑越快</string>
+    <string name="game_runner_hint">点按跳跃，空中再点二段跳；按住下蹲可躲过悬浮障碍并快速落地</string>
+    <string name="game_tetris">俄罗斯方块</string>
+    <string name="game_tetris_hint">左右滑移动，点一下旋转，下滑快速下落</string>
+    <string name="game_tetris_left">左移</string>
+    <string name="game_tetris_right">右移</string>
+    <string name="game_tetris_rotate">旋转</string>
+    <string name="game_tetris_drop">下落</string>
+    <string name="game_score">分数 %1$d</string>
+    <string name="game_score_zero">分数 0</string>
+    <string name="game_high_score">最高 %1$d</string>
+    <string name="game_high_score_zero">最高 0</string>
+    <string name="game_reward_playing">完成本局后，按得分领取食物奖励</string>
+    <string name="game_reward_none">本局还没有得分</string>
+    <string name="game_reward_ready">本局结束，得分 %1$d，可领取食物奖励</string>
+    <string name="game_reward_claimed">获得 %1$d 份食物！继续玩还能获得更多</string>
+    <string name="game_claim_reward">领取本局食物奖励</string>
+    <string name="game_restart">重新开始</string>
+</resources>

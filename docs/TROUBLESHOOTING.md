@@ -68,3 +68,13 @@
 **原因：** 主页只等待固定 1.2 秒检查 `PetService.isRunning`；而 `PetService.onCreate()` 的失败分支调用 `stopSelf()` 后没有结束初始化流程。
 
 **办法：** 主页改为最多 8 次、每 500 ms 轮询服务状态；服务初始化失败时清理已排队的 Handler 回调并立即结束 `onCreate()`。
+
+---
+
+## 2026-09-13 跑酷更新包为增量源码快照
+
+**症状：** 压缩包包含跑酷和俄罗斯方块页面代码，但引用 `TetrisArena`、`PetHomeActivity`、`home_panel_bg`；当前 `main` 中没有这些依赖。
+
+**核对：** 解压得到 19 个文件，包含 4 个 Kotlin 类、11 帧角色素材和 3 个资源文件。静态检索确认上述依赖不在当前主工程。
+
+**办法：** 在新分支 `codex/guardpet-parkour-20260913` 下以 `ParkourUpdate/` 保存原样快照，并在导入说明中标注依赖和合并步骤；不直接覆盖 `GuardPet/`，待依赖补齐后再合入。

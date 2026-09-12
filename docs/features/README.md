@@ -12,3 +12,4 @@
 | 06 | [Reef 拦截与配置](06-reef-focus.md) | `:reef` |
 
 新增功能先在此表占一行，再写文档草稿，再改代码。
+| 07 | [跑酷小游戏更新](07-parkour-game.md) | `ParkourUpdate/` 源码快照，待补齐依赖后合入 |

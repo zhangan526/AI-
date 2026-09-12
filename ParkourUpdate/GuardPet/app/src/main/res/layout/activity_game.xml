@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_background"
+    android:keepScreenOn="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="‹"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/gameTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:textColor="@color/text_primary"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/scoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_score_zero"
+                    android:textColor="@color/brand_primary_dark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/highScoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/game_high_score_zero"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/gameHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:background="@drawable/home_panel_bg">
+
+            <com.geekathon.guardpet.GameSurface
+                android:id="@+id/gameSurface"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.geekathon.guardpet.PetCanvas
+                android:id="@+id/gamePet"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="35dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/tetrisButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/tetrisLeft"
+                style="@style/HomeGameButton"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="@string/game_tetris_left" />
+
+            <Button
+                android:id="@+id/tetrisRotate"
+                style="@style/HomeGameButton"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:text="@string/game_tetris_rotate" />
+
+            <Button
+                android:id="@+id/tetrisRight"
+                style="@style/HomeGameButton"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:text="@string/game_tetris_right" />
+
+            <Button
+                android:id="@+id/tetrisDrop"
+                style="@style/HomeGameButton"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:text="@string/game_tetris_drop" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/runnerCrouch"
+            style="@style/HomeGameButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:text="下蹲 / 快速下落"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/rewardText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/game_reward_playing"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/claimButton"
+            style="@style/HomeGameButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/game_claim_reward" />
+
+        <Button
+            android:id="@+id/restartButton"
+            style="@style/HomeGameButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/game_restart" />
+    </LinearLayout>
+</FrameLayout>
