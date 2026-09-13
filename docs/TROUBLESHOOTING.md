@@ -27,6 +27,16 @@
 
 ## 条目
 
+### 2026-09-13 — 离线编译缺少本地 sherpa-onnx AAR
+
+- **功能 / 上下文**：`docs/features/09-sensevoice-asr.md` / Gradle 离线构建
+- **症状**：绕过中文路径检查后，`:app:dataBindingMergeDependencyArtifactsDebug` 报 `libs/sherpa-onnx-1.13.8.aar` 路径不存在。
+- **尝试过的方法**：
+  1. 使用 `--offline` 直接构建（结果：缺少仓库未跟踪的本地 AAR）
+- **最终原因**：`GuardPet/app` 依赖由本地脚本获取的 sherpa-onnx AAR，二进制未提交到 Git。
+- **解决方法**：从已有 GuardPet 工作区补入 `GuardPet/libs/sherpa-onnx-1.13.8.aar` 后再构建；该文件受 `.gitignore` 排除，不随分支提交。
+- **后续**：其他开发机需先运行 SenseVoice 依赖获取脚本或提供同版本 AAR，才能完成完整离线编译。
+
 ### 2026-09-13 — 日程语音策略请求卡住且未申请麦克风
 
 - **功能 / 上下文**：`docs/features/11-day-schedule.md` / `ScheduleOverlay` / `ScheduleLlmClient`
@@ -507,3 +517,8 @@
 **办法：** Android 16 AudioHardening 会静音没有前台 Activity 的后台 `STREAM_MUSIC`（本机是后刷原生 AOSP，不是 ColorOS）。录音 WAV 文件本身是有波形的。播放时给已有 `PetService` 临时加上 `mediaPlayback`，AudioTrack 用 `USAGE_ASSISTANCE_SONIFICATION` + `FLAG_AUDIBILITY_ENFORCED`。仅 FGS 仍不够，见上一条 `FlashNotePlayActivity`。
 
 - **复现 / 修订**：曾误写成 ColorOS 专有限制。真机为后刷原生 Android 16。
+## 2026-09-13：Windows 中文路径导致 Gradle 启动前失败
+
+- 症状：在 `C:\Users\ZHY\Desktop\AI桌宠\...` 下执行 `:app:assembleDebug --offline` 时，Android Gradle Plugin 报 `project path contains non-ASCII characters`，尚未开始 Kotlin/资源编译。
+- 原因：AGP 在 Windows 默认拒绝包含非 ASCII 字符的工程路径。
+- 解决：在 `GuardPet/gradle.properties` 增加 `android.overridePathCheck=true`，允许当前本地路径继续构建。发布/协作环境仍建议使用纯英文路径。

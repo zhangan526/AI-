@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.geekathon.guardpet.PetHomeBackdrop
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pet_home_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/homeMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/pet_home_welcome"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/home_avatar_bg"
+                    android:gravity="center"
+                    android:text="♥"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/heroCard"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="18dp"
+                app:cardBackgroundColor="#FFFDFE"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="4dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="-70dp"
+                        android:layout_marginEnd="-35dp"
+                        android:background="@drawable/home_glow" />
+
+                    <LinearLayout
+                        android:layout_width="190dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pet_home_mood_today"
+                            android:textColor="@color/brand_primary_dark"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/heroGreeting"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:text="@string/pet_home_hero_greeting"
+                            android:textColor="@color/text_primary"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/pet_home_hero_hint"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <com.geekathon.guardpet.PetCanvas
+                        android:id="@+id/homePet"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="8dp" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:id="@+id/homeMood"
+                    style="@style/HomeStat"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_stat_bg"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/homeHunger"
+                    style="@style/HomeStat"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_stat_bg"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/homeHygiene"
+                    style="@style/HomeStat"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_stat_bg"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/homeSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/pet_home_summary_default"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="@string/pet_home_today_title"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/pet_home_today_hint"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/gameCard"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#FF7C9F"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:background="@drawable/home_icon_circle_white"
+                        android:gravity="center"
+                        android:text="♟"
+                        android:textColor="#FF7C9F"
+                        android:textSize="28sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pet_home_game_title"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/pet_home_game_hint"
+                            android:textColor="#FFFFE9F0"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textColor="@color/white"
+                        android:textSize="32sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="118dp"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/careCard"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#806CDB"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/home_icon_circle_white"
+                            android:gravity="center"
+                            android:text="♥"
+                            android:textColor="#806CDB"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:text="@string/pet_home_care_title"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pet_home_care_hint"
+                            android:textColor="#FFEDEAFF"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/touchCard"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="#3BAFA7"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:background="@drawable/home_icon_circle_white"
+                            android:gravity="center"
+                            android:text="✋"
+                            android:textColor="#3BAFA7"
+                            android:textSize="23sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:text="@string/pet"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pet_home_touch_hint"
+                            android:textColor="#FFE8FFFF"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/carePanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/home_panel_bg"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/touchHomeButton"
+                    style="@style/HomeGameButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/pet" />
+
+                <Button
+                    android:id="@+id/feedHomeButton"
+                    style="@style/HomeGameButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/feed" />
+
+                <Button
+                    android:id="@+id/bathButton"
+                    style="@style/HomeGameButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/pet_home_bath" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

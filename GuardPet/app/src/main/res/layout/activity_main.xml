@@ -312,6 +312,14 @@
                         android:textSize="12sp" />
                 </LinearLayout>
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/petHomeButton"
+                    style="@style/Widget.GuardPet.Button.secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pet_home_entry" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

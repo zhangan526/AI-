@@ -66,6 +66,9 @@ class MainActivity : AppCompatActivity() {
         binding.todoButton.setOnClickListener {
             startActivity(Intent(this, PetPanelActivity::class.java))
         }
+        binding.petHomeButton.setOnClickListener {
+            startActivity(Intent(this, PetHomeActivity::class.java))
+        }
         if (intent?.getBooleanExtra(EXTRA_AUTO_EXTRACT, false) == true) {
             scheduleAutoExtract()
         }

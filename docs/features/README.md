@@ -23,4 +23,5 @@
 | 09 | [离线 SenseVoice ASR（闪记）](09-sensevoice-asr.md) | 已接入 | `:app` + `:sensevoice-pack` |
 | 10 | [音量加减和弦打开闪记](10-volume-chord-flash.md) | 已接入 | `:app` + `BlockerService` `onKeyEvent` |
 | 11 | [今日日程（富日程）](11-day-schedule.md) | 已接入 | `:app` 左 overlay + AI；Habit 时段 allow/block |
+| 12 | [宠物之家小游戏（跑酷 / 俄罗斯方块）](12-pet-home-games.md) | 已接入 | `:app` 宠物之家、普通 Activity 小游戏 |
 | — | [_TEMPLATE.md](_TEMPLATE.md) | 模板 | — |
